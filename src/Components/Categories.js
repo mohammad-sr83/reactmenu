@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const Categories = (cate) => {
+const Categories = ({cate}) => {
   const [isclick , setIsclick]=useState(false)
   return (
     <div className="btn-container">
