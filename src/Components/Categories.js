@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 
+const Categories = ({ cate ,filtemenu}) => {
 
-const Categories = ({cate}) => {
-  const [isclick , setIsclick]=useState(false)
+  const [click, setClick] = useState('all')
   return (
     <div className="btn-container">
-      {cate.map((categurey)=>(
+      {cate.map((categurey,index) => (
         <button
-        type="button"
-        // highlight class  for highlight main category
-        className={isclick ? 'filter-btn highlight':'filter-btn'}
-        onClick={()=>setIsclick(true)}
-      >
-        {categurey}
-      </button>
+          key={index}
+          type="button"
+          className={click == categurey ? 'filter-btn highlight' : 'filter-btn'}
+          onClick={() => {
+            setClick(categurey) 
+            filtemenu(categurey)
+          }}>
+          {categurey}
+        </button>
       ))}
     </div>
   );
